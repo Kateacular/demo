@@ -1,8 +1,19 @@
-body{
-	background-image:url();
-}
+/*body{
+	background-image:url('images/openPages.png');
+}*/
 
 h1{
-	font-family: Amarante, Georgia, "Century Gothic", Verdana;
+	font-family: Amarante, Georgia, Verdana;
 	color: darkblue;
 };
+
+
+
+
+#tester {
+    height: 100px;
+    width: 100px;
+    border: solid; 4px; black;
+    background-color: green;
+    box-shadow: 5px 5px 5px #888
+    }

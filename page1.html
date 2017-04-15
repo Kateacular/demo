@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel='stylesheet' type='text/css' href='style.css'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="script.js"></script>
 	<title>Generated Results 1</title>
 </head>
 <body>
 	<p><h1>Insult Generated:</h1></p>
+	<!-- <script>functonHere();</script> -->
 	<p><h3>Your insult is:</h3></p>
+	<script>getInsult();</script>
+	
 	<p>Now that you have a perfectly delightful insult to use when needed, one more step is required:</p>
 	<div id = "finalForm">
 		<fieldset>
@@ -13,9 +19,11 @@
 		Final Step:
 		</legend>
 		<br/>
-		<label for = 'birthdate'>Pick a Color that Describes your Mood:
+		<label for = 'color'>Pick a Color that Describes your Mood:
 		</label>
-		<select name = 'birthmonth' id = 'month'>
+	
+		<select size = "1" name = 'colorChoice' id = 'myColor' required>
+			<option value=""> - Select - </option>
 			<option value = 'Red'>Red</option>
 			<option value = 'Orange'>Orange</option>
 			<option value = 'Yellow'>Yellow</option>
@@ -25,12 +33,13 @@
 			<option value = 'Black'>Black</option>
 			<option value = 'White'>White</option>
 		</select>
-		</fieldset>
-	</div>
-	<div id = 'submit2'>
+	
+		<div id = 'submitNext'>
 		<nav>Submit and Generate:
-			<button><a href= page2.html target='blank'>Submit</a></button>
+			<button id = 'submitTwo'><a href= page2.html target='blank'>Submit</a></button>
 		</nav>
+		</div>
+		</fieldset>
 	</div>
 	<footer>
 		<p><h3>&#169 Kate Orr 2017</h3></p>	

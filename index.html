@@ -2,7 +2,8 @@
 <html>
 <head>
 	<link rel='stylesheet' type='text/css' href='style.css'>
-	<!-- <link rel='script' type='text/js' href='script'> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="script.js"></script>
 
 	<title>Main Page</title>
 
@@ -10,7 +11,7 @@
 
 <body>
 	<div id='Intro'>
-		<p><h1 align='right'>Demo Day App Title</h1> </p>
+		<h1 align='right'>Demo Day App Title</h1>
 	</div>
 	<div id='form1'>
 		<fieldset>
@@ -19,17 +20,19 @@
 			</legend>
 			<label>
 				First Letter of Your First Name:
-				<input type = 'text' name = 'name' size = '1' maxlength = '1'>
+				<input id ='letterOne' type = 'text' name = 'francis' size = '1' maxlength = '1' required >
+				<!-- <script type="text/javascript" src="script.js"></script> -->
 			</label>
 				<br/>
 			<label>
 				Last Letter of Your Last Name:
-				<input type = 'text' name = 'name' size = '1' maxlength = '1'>
+				<input id = 'letterTwo' type = 'text' name = 'sally' size = '1' maxlength = '1' required>
 			</label>
 				<br/>
 			<label for = 'birthdate'>What is your birth month?
 			</label>
-			<select name = 'birthmonth' id = 'month'>
+			<select size = "1" name = 'birthmonth' id = 'month' required >
+				<option value=""> - Select - </option>
 				<option value = 'Jan'>January</option>
 				<option value = 'Feb'>February</option>
 				<option value = 'Mar'>March</option>
@@ -44,17 +47,24 @@
 				<option value = 'Dec'>December</option>
 			</select>
 
-			<div id = 'submit1'>
+			<div id = 'submitOne'>
 				<nav>Submit and Generate:
-					<button><a href= page1.html target='blank'>Submit</a></button>
+					<button id = 'submit'><a href=page1.html target='blank'>Submit</a></button>
 				</nav>
+				<!-- reference button -->
+<!-- 				<nav>Concepts Page:
+				<button><a href= Gallery.html target=_"blank">Go to Page</a></button>
+		</nav> -->
 			</div>
 		</fieldset>
+	<!-- <div id = "tester">Test Button</div> -->
 	</div>
+
 	<footer>
-		<p><h3>&#169 Kate Orr 2017</h3></p>	
+	<p><h3>&#169 Kate Orr 2017</h3></p>	
 	</footer>
 </body>
+<script src="script.js"></script>
 </html>
 
 
