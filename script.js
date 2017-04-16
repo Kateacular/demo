@@ -1,13 +1,5 @@
 
 
-
-
-
-
-var firstLetter;
-var secondLetter;
-var chosenMonth;
-var chosenColor;
 //var secondLetter = document.getElementById("letterTwo");
 //var chosenMonth = document.getElementById('month');
 //var chosenColor = document.getElementById('myColor');
@@ -19,6 +11,12 @@ var chosenColor;
 //local storage:
 //to set: localStorage.setItem('key', value);
 //to get: localStorage.getItem('key');
+
+
+var firstLetter;
+var secondLetter;
+var chosenMonth;
+var chosenColor;
 
 localStorage.setItem('one', firstLetter);
 localStorage.setItem('two', secondLetter);
@@ -96,12 +94,12 @@ $ ('#submitTwo').click(function() {
 	});
 
 
-var getInsult=function() {
-	console.log("calling Insult Function");
-var wordOne = "Insult Inserted Here";	
+$ (function getInsult() {
+	console.log("calling insult function");
 //var wordOne =localStorage.getItem('one');
-document.write(wordOne);
-};
+var wordOne = "Checking Variable Recall";
+alert(wordOne);
+});
 
 
 
