@@ -39,20 +39,28 @@ var firstAdj = {
 					c: "Churlish",
 					d: "Dankish",
 					e: "Errant",
-					
-					};	
-
-
-
-
-
-
-
-
-
-
-
-
+					f: "Frothy",
+					g: "Gorbellied",
+					h: "Impertinent",
+					i: "Infectious",
+					j: "Jarring",
+					k: "Loggerheaded",
+					l: "Lumpish",
+					m: "Mewling",
+					n: "Paunchy",
+					o: "Pribbling",
+					p: "Puny",
+					q: "Quibbling",
+					r: "Rank",
+					s: "Spleeny",
+					t: "Tottering",
+					u: "Unmuzzled",
+					v: "Venomed",
+					w: "Weedy",
+					x: "Wayward",
+					y: "Yeasty",
+					z: "Clouted"
+				};	
 
 //based on secondLetter
 var secondAdj = {
@@ -61,11 +69,28 @@ var secondAdj = {
 					c: "Clapper-Clawed",
 					d: "Dread-Bolted",
 					e: "Earth-Vexing",
-					
-					};
-
-
-
+					f: "Flap-Mouthed",
+					g: "Guts-Griping",
+					h: "Hasty-Witted",
+					i: "Idle-Headed",
+					j: "Ill-Breeding",
+					k: "Knotty-Pated",
+					l: "Milk-Livered",
+					m: "Motley-Minded",
+					n: "Plume-Plucked",
+					o: "Onion-Eyed",
+					p: "Pottle-Deep",
+					q: "Pox-Marked",
+					r: "Rump-Fed",
+					s: "Sheep-Biting",
+					t: "Toad-Spotted",
+					u: "Unchin-Snouted",
+					v: "Tardy-Gaited",
+					w: "Weather-Bitten",
+					x: "Tickle-Brained",
+					y: "Rough-Hewn",
+					z: "Swag-Bellied"
+				};
 
 //based on chosenMonth
 var january =[ "Apple-John", "Baggage"];
@@ -157,7 +182,7 @@ alert(userMonth);
 
 $ (function storeInsult() {
 	console.log("storingInsult");
-var userInsult = (firstAdj[wordOne])+(secondAdj[wordTwo])+userMonth;
+var userInsult = (firstAdj[wordOne])+" "+(secondAdj[wordTwo])+" "+userMonth;
 localStorage.setItem('fullInsult',userInsult);
 });
 
@@ -184,7 +209,7 @@ $ ('#submit').click(function() {
 	// alert ("Letters only, please.");
 	// }
 	else {
-		alert (firstLetter + secondLetter + chosenMonth);
+		//alert (firstLetter + secondLetter + chosenMonth);
 		console.log(firstLetter + secondLetter + chosenMonth);
 		getAdjFirst();
 		getAdjSecond();
