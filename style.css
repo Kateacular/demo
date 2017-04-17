@@ -1,14 +1,90 @@
-/*body{
-	background-image:url('images/openPages.png');
-}*/
+/*colors:
+yellowish: rgb(228,188,116);
+pink: rgb(191,135,136);
+blue: rgb(68,77,97);
+orange: rgb(222,144,60);*/
+
+body{
+	background-image:url('images/DemoBG01.png');
+	background-repeat: no-repeat;
+	/*background-attachment: fixed;*/
+	background-color: rgb(68,77,97);
+	max-width: 700px;
+	min-width:700px;
+	max-height: 1006px;
+}
 
 h1{
-	font-family: Amarante, Georgia, Verdana;
-	color: darkblue;
+	max-width: 500px;
+	margin: 230px 90px 20px 260px ;
+	border: 4px solid rgb(68,77,97);
+	padding: 20px;
+
+	font-family: "Amarante-Regular", Georgia, Verdana;
+	color: rgb(68,77,97);
+
+	text-align: right;
+
 };
 
+h2{
+/*	max-width: 500px;
+	max-height: 1006px;*/
+	font-family: "Amarante-Regular", Georgia, Verdana;
+	color: rgb(222,144,60);
 
 
+
+}
+
+h3{
+	font-family: "Amarante-Regular", Georgia, Verdana;
+	color: rgb(191,135,136);
+	max-width: 700px;
+	max-height: 1006px;
+}
+
+
+#form1 {
+
+	max-width: 350px;
+	margin: 20px 90px 20px 260px;
+	border: 2px solid rgb(68,77,97);
+	padding: 20px;
+	align-content: center;
+
+	font-family: "Amarante-Regular", Georgia, Verdana;
+	font-size: 18px;
+	text-align: center;
+	color: rgb(222,144,60);
+
+}
+
+#finalForm {
+
+	max-width: 350px;
+	margin: 20px 90px 20px 260px;
+	border: 2px solid rgb(68,77,97);
+	padding: 20px;
+	align-content: center;
+
+	font-family: "Amarante-Regular", Georgia, Verdana;
+	font-size: 18px;
+	text-align: center;
+	color: rgb(222,144,60);
+
+}
+
+
+
+footer {
+	max-width:700px;
+	max-height: 1006px;
+	margin: 20px 90px 100px 330px;
+	/*border: 2px solid rgb(68,77,97);*/
+	padding: 20px;
+
+}
 
 #tester {
     height: 100px;

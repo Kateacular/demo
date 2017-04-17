@@ -16,17 +16,19 @@
 var firstLetter;
 var secondLetter;
 var chosenMonth;
+var chosenHue;
 var chosenColor;
 
 var userLetOne;
 var userLetTwo;
 var userMonth;
 var userColor;
+var userMood;
 
 var wordOne;
 var wordTwo;
 
-var myChoices =[];
+var randomAct;
 
 //JSON Messages
 
@@ -116,6 +118,7 @@ var violet=["Donate used books to a library or senior center.","Compliment a str
 var black=["Write a positive comment on a website or blog","On your next break, go outside and don't bring your tech."];
 var white=["Give a gift card to someone just because.","Start a piggy bank for a cause."];
 
+
 $(document).ready(function() {
 
 $ (function getAdjFirst(){
@@ -136,7 +139,7 @@ wordTwo =localStorage.getItem('two');
 
 
 $(function getNoun(){
-var chosenMonth =localStorage.getItem('mos');
+chosenMonth =localStorage.getItem('mos');
 	if (chosenMonth == "Jan") {
 	userMonth = january[Math.floor(Math.random() * january.length)];
 	}
@@ -177,7 +180,7 @@ var chosenMonth =localStorage.getItem('mos');
 	alert("No Month Selected");
 	}
 //var wordOne = "Checking Variable Recall";
-alert(userMonth);
+//alert(userMonth);
 });
 
 $ (function storeInsult() {
@@ -191,6 +194,43 @@ $ (function getInsult() {
 	console.log("calling insult function");
 var sickBurn =localStorage.getItem('fullInsult');
 console.log(sickBurn);
+alert(sickBurn);
+});
+
+$ (function getAct(){
+chosenColor =localStorage.getItem('col');
+console.log("pulled color from storage");
+console.log(chosenColor);
+	if (chosenColor == 'Red') {
+	userMood = red[Math.floor(Math.random() * red.length)];
+	}
+	else if (chosenColor == 'Orange'){
+	userMood = orange[Math.floor(Math.random() * orange.length)];
+	}
+	else if (chosenColor == 'Yellow'){
+	userMood = yellow[Math.floor(Math.random() * yellow.length)];
+	}
+	else if (chosenColor == 'Green'){
+	userMood = green[Math.floor(Math.random() * green.length)];
+	}
+	else if (chosenColor == 'Blue'){
+	userMood = blue[Math.floor(Math.random() * blue.length)];
+	}
+	else if (chosenColor == 'Violet'){
+	userMood = violet[Math.floor(Math.random() * violet.length)];
+	}
+	else if (chosenColor == 'Black'){
+	userMood = black[Math.floor(Math.random() * black.length)];
+	}
+	else if (chosenColor == 'White'){
+	userMood = white[Math.floor(Math.random() * white.length)];
+	}
+	else{
+	console.log("unselected mood color");	
+	}
+localStorage.setItem('mood', userMood);
+randomAct = localStorage.getItem('mood');
+	console.log(randomAct);
 });
 
 $ ('#submit').click(function() {
@@ -219,10 +259,10 @@ $ ('#submit').click(function() {
 	
 $ ('#submitTwo').click(function() {
 	//chosenColor = $('input[name=colorChoice]').val();
-	chosenColor = $('option:selected').val();
-	localStorage.setItem('col', chosenColor);
-		console.log(chosenColor);
-		alert (chosenColor);
+	chosenHue = $('option:selected').val();
+	localStorage.setItem('col', chosenHue);
+	console.log(chosenHue);
+	getAct();
 	});
 
 
