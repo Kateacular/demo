@@ -193,8 +193,9 @@ localStorage.setItem('fullInsult',userInsult);
 $ (function getInsult() {
 	console.log("calling insult function");
 var sickBurn =localStorage.getItem('fullInsult');
+$("#sickBurn").html("Your insult is: " + sickBurn);
 console.log(sickBurn);
-alert(sickBurn);
+//alert(sickBurn);
 });
 
 $ (function getAct(){
@@ -231,6 +232,7 @@ console.log(chosenColor);
 localStorage.setItem('mood', userMood);
 randomAct = localStorage.getItem('mood');
 	console.log(randomAct);
+$("#kindness").html("Your random act of kindness is: " + randomAct);
 });
 
 $ ('#submit').click(function() {

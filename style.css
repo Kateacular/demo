@@ -21,19 +21,17 @@ h1{
 	padding: 20px;
 
 	font-family: "Amarante-Regular", Georgia, Verdana;
-	color: rgb(68,77,97);
+	color: rgb(222,144,60);
 
-	text-align: right;
+	text-align: center;
 
 };
 
 h2{
-/*	max-width: 500px;
-	max-height: 1006px;*/
+	max-width: 500px;
+	max-height: 1006px;
 	font-family: "Amarante-Regular", Georgia, Verdana;
 	color: rgb(222,144,60);
-
-
 
 }
 
@@ -57,8 +55,14 @@ h3{
 	font-size: 18px;
 	text-align: center;
 	color: rgb(222,144,60);
-
 }
+
+#content {
+	color: rgb(68,77,97);
+}
+/***********
+PAGE 1 SPECIFIC
+***********/
 
 #finalForm {
 
@@ -69,15 +73,60 @@ h3{
 	align-content: center;
 
 	font-family: "Amarante-Regular", Georgia, Verdana;
-	font-size: 18px;
+	font-size: 12px;
 	text-align: center;
-	color: rgb(222,144,60);
+	color: rgb(191,135,136);
+}
+
+#resultsOne {
+
+	max-width: 350px;
+	margin: 20px 90px 20px 260px;
+	border: 2px solid rgb(68,77,97);
+	padding: 10px;
+	align-content: center;
+
+	font-family: "Amarante-Regular", Georgia, Verdana;
+	font-size: 10px;
+	text-align: center;
+	color: rgb(191,135,136);
 
 }
 
+/***********
+PAGE 2 SPECIFIC
+***********/
 
+#finalResults {
 
-footer {
+	max-width: 350px;
+	margin: 20px 90px 20px 260px;
+	border: 2px solid rgb(68,77,97);
+	padding: 20px;
+	align-content: center;
+
+	font-family: "Amarante-Regular", Georgia, Verdana;
+	font-size: 12px;
+	text-align: center;
+	color: rgb(191,135,136);
+
+}
+#partingMessage {
+
+	max-width: 350px;
+	margin: 20px 90px 20px 260px;
+	border: 2px solid rgb(68,77,97);
+	padding: 20px;
+	align-content: center;
+
+	font-family: "Amarante-Regular", Georgia, Verdana;
+	font-size: 12px;
+	text-align: center;
+	color: rgb(191,135,136);
+
+}
+
+#footerOne {
 	max-width:700px;
 	max-height: 1006px;
 	margin: 20px 90px 100px 330px;
