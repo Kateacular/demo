@@ -8,7 +8,7 @@ body{
 	background-image:url('images/DemoBG01.png');
 	background-repeat: no-repeat;
 	/*background-attachment: fixed;*/
-	background-color: rgb(68,77,97);
+	background-color: rgb(228,188,116);
 	max-width: 700px;
 	min-width:700px;
 	max-height: 1006px;
@@ -46,7 +46,7 @@ h3{
 #form1 {
 
 	max-width: 350px;
-	margin: 20px 90px 20px 260px;
+	margin: 20px 90px 16px 260px;
 	border: 2px solid rgb(68,77,97);
 	padding: 20px;
 	align-content: center;
@@ -78,6 +78,10 @@ PAGE 1 SPECIFIC
 	color: rgb(191,135,136);
 }
 
+#pickColor {
+	color: rgb(68,77,97);
+}
+
 #resultsOne {
 
 	max-width: 350px;
@@ -89,7 +93,7 @@ PAGE 1 SPECIFIC
 	font-family: "Amarante-Regular", Georgia, Verdana;
 	font-size: 10px;
 	text-align: center;
-	color: rgb(191,135,136);
+	color: rgb(68,77,97);
 
 }
 
@@ -106,9 +110,9 @@ PAGE 2 SPECIFIC
 	align-content: center;
 
 	font-family: "Amarante-Regular", Georgia, Verdana;
-	font-size: 12px;
+	font-size: 14px;
 	text-align: center;
-	color: rgb(191,135,136);
+	color: rgb(68,77,97);
 
 }
 #partingMessage {
@@ -120,7 +124,7 @@ PAGE 2 SPECIFIC
 	align-content: center;
 
 	font-family: "Amarante-Regular", Georgia, Verdana;
-	font-size: 12px;
+	font-size: 14px;
 	text-align: center;
 	color: rgb(191,135,136);
 
@@ -129,11 +133,23 @@ PAGE 2 SPECIFIC
 #footerOne {
 	max-width:700px;
 	max-height: 1006px;
-	margin: 20px 90px 100px 330px;
-	/*border: 2px solid rgb(68,77,97);*/
-	padding: 20px;
+	margin: 0px 90px 100px 250px;
+	padding: 5px;
 
+	text-align:center;
 }
+
+#footerTwo {
+	max-width:700px;
+	max-height: 1006px;
+	margin: 0px 90px 100px 250px;
+	padding: 5px;
+
+	text-align:center;
+}
+
+
+
 
 #tester {
     height: 100px;

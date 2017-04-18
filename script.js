@@ -112,7 +112,7 @@ var december = ["Strumpet","Varlot"];
 var red =["Bake cookies for someone.","Bring someone a souvenir within the week."];
 var orange = ["Write at least 5 positive sticky notes for strangers","Send a personal message to everyone you know that has a birthday today."];
 var yellow =["Leave quarters at a laundromat.","Donate at least 5 items of clothing."];
-var green=["Bring reusable bags to the grocery store","Switch to paperless mail.","Drink out of reusable cups."];
+var green=["Bring reusable bags to the grocery store.","Switch to paperless mail.","This week, drink out of reusable cups only."];
 var blue=["Write a handwritten letter and send it.","For every person you meet in the service industry today, say something kind to them."];
 var violet=["Donate used books to a library or senior center.","Compliment a stranger."];
 var black=["Write a positive comment on a website or blog","On your next break, go outside and don't bring your tech."];
@@ -193,7 +193,7 @@ localStorage.setItem('fullInsult',userInsult);
 $ (function getInsult() {
 	console.log("calling insult function");
 var sickBurn =localStorage.getItem('fullInsult');
-$("#sickBurn").html("Your insult is: " + sickBurn);
+$("#sickBurn").html("Your insult is: \n" + sickBurn);
 console.log(sickBurn);
 //alert(sickBurn);
 });
@@ -232,7 +232,7 @@ console.log(chosenColor);
 localStorage.setItem('mood', userMood);
 randomAct = localStorage.getItem('mood');
 	console.log(randomAct);
-$("#kindness").html("Your random act of kindness is: " + randomAct);
+$("#kindness").html("Your random act of kindness is:\n" + randomAct);
 });
 
 $ ('#submit').click(function() {
