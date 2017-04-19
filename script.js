@@ -1,18 +1,7 @@
 
-
-//var secondLetter = document.getElementById("letterTwo");
-//var chosenMonth = document.getElementById('month');
-//var chosenColor = document.getElementById('myColor');
-
-
-//find the code that eliminates characters for data - also numbers?
-//var invalidChoices = [1,2,3,4,5,6,7,8,9,0];
-
 //local storage:
 //to set: localStorage.setItem('key', value);
 //to get: localStorage.getItem('key');
-
-
 var firstLetter;
 var secondLetter;
 var chosenMonth;
@@ -29,6 +18,12 @@ var wordOne;
 var wordTwo;
 
 var randomAct;
+
+var firstCondition = false;
+var secondCondition = false;
+var thirdCondition = false;
+
+var moodCondition = false;
 
 //JSON Messages
 
@@ -95,9 +90,9 @@ var secondAdj = {
 				};
 
 //based on chosenMonth
-var january =[ "Apple-John", "Baggage"];
-var february =[ "Barnacle","Bladder"];
-var march = ["Coxcomb","Codpiece"];
+var january = [ "Apple-John", "Baggage"];
+var february = [ "Barnacle", "Bladder"];
+var march = ["Coxcomb", "Codpiece"];
 var april = ["Dewberry", "Death-token"];
 var may = ["Foot-Licker", "Flap-Dragon"];
 var june = ["Harpy", "Lewdster"];					
@@ -107,6 +102,15 @@ var september = ["Pigeon-egg", "Pignut"];
 var october = ["Puttock","Ratsbane"];
 var november = ["Scut","Skakinsmate"];
 var december = ["Strumpet","Varlot"];
+
+// "Jan"
+
+// var month = {
+// 	jan: [ "Apple-John", "Baggage"],
+// 	key: value
+// };
+
+// randomNoun(month.jan);
 
 //based on chosenColor
 var red =["Bake cookies for someone.","Bring someone a souvenir within the week."];
@@ -121,27 +125,57 @@ var white=["Give a gift card to someone just because.","Start a piggy bank for a
 
 $(document).ready(function() {
 
-$ (function getAdjFirst(){
+//Submit Buttons Disabled by Default
+//enable buttons by removing the second value, ex: 
+// when criteria is met --- $("form").keyup(function(){
+//run this  ---- 	$("input[type=submit]").removeAttr('disabled');
+							// });
+
+function disableButton() {
+	console.log("No Buttons for YOU!");
+	$('#submitOne').attr('disabled','disabled');
+	$('#submitTwo').attr('disabled','disabled');
+} 
+disableButton();
+
+function enableButton() {
+	console.log("Checking conditions, enabling button.");
+	if ((firstCondition === true) && (secondCondition === true) && (thirdCondition === true)) {
+		$("#submitOne").removeAttr('disabled');
+	}
+
+}	
+
+
+
+function getAdjFirst(){
 wordOne =localStorage.getItem('one');
 	for (var x in firstAdj) {
-	//console.log(firstAdj[wordOne]);
+		//console.log("Insult word, next line:");
+	userLetOne = (firstAdj[wordOne]);
+	//console.log((firstAdj[wordOne]));
     //console.log("testing adjective 1 call");
 	}
-});
+}
 
-$ (function getAdjSecond(){
+function getAdjSecond(){
 wordTwo =localStorage.getItem('two');
 	for (var x in secondAdj) {
-	//console.log(secondAdj[wordTwo]);
-   // console.log("testing adjective 2 call");
+	userLetTwo = (secondAdj[wordTwo]);
+//console.log("testing adjective 2 call");
 	}
-});
+}
 
+//Robb notes
+// function randomNoun(arr) {
+// 	random = Math.floor(Math.random() * arr.length);
+// 	return  random;
+// }
 
-$(function getNoun(){
-chosenMonth =localStorage.getItem('mos');
+function getNoun(){
+chosenMonth = localStorage.getItem('mos');
 	if (chosenMonth == "Jan") {
-	userMonth = january[Math.floor(Math.random() * january.length)];
+	userMonth = january[randomNoun(january)];
 	}
 	else if (chosenMonth == "Feb"){
 	userMonth = february[Math.floor(Math.random() * february.length)];
@@ -176,29 +210,30 @@ chosenMonth =localStorage.getItem('mos');
 	else if (chosenMonth == "Dec"){
 	userMonth = december[Math.floor(Math.random() * december.length)];
 	}
-	else {
-	alert("No Month Selected");
-	}
+	// else {
+	// alert("No Month Selected");
+	// }
 //var wordOne = "Checking Variable Recall";
 //alert(userMonth);
-});
+}
 
-$ (function storeInsult() {
+function storeInsult() {
 	console.log("storingInsult");
-var userInsult = (firstAdj[wordOne])+" "+(secondAdj[wordTwo])+" "+userMonth;
+var userInsult = userLetOne+" "+userLetTwo+" "+userMonth;
+alert (userInsult);
 localStorage.setItem('fullInsult',userInsult);
-});
+}
 
 
-$ (function getInsult() {
+function getInsult() {
 	console.log("calling insult function");
-var sickBurn =localStorage.getItem('fullInsult');
-$("#sickBurn").html("Your insult is: \n" + sickBurn);
+var sickBurn = localStorage.getItem('fullInsult');
+$("#burn").html("Your insult is: " + sickBurn);
 console.log(sickBurn);
 //alert(sickBurn);
-});
+}
 
-$ (function getAct(){
+function getAct(){
 chosenColor =localStorage.getItem('col');
 console.log("pulled color from storage");
 console.log(chosenColor);
@@ -231,44 +266,102 @@ console.log(chosenColor);
 	}
 localStorage.setItem('mood', userMood);
 randomAct = localStorage.getItem('mood');
-	console.log(randomAct);
+console.log(randomAct);
 $("#kindness").html("Your random act of kindness is:\n" + randomAct);
+}
+
+
+//Buttons and click events
+
+//This function checks for validity of entry one, and pushes it to local storage.
+$ ('#letterOne').keyup(function() {
+	var inputLetter = $('input[name=francis]').val();
+	var myRegex = /^[a-zA-Z]+$/;
+	if (myRegex.test(inputLetter)) {
+		console.log ("is running letter check one"+inputLetter);
+		firstLetter = inputLetter.toLowerCase();	
+		localStorage.setItem('one', firstLetter);
+		firstCondition = true;
+		getAdjFirst();
+	}
+	else if ((inputLetter === " ") || (inputLetter ==="")) {
+		alert ("Don't skip this step!");
+	}	
+	else{
+		$('#field1').trigger('reset');
+		alert ("Letters only, please.");
+	}
+	enableButton();
 });
 
-$ ('#submit').click(function() {
-	firstLetter = $('input[name=francis]').val();
-	localStorage.setItem('one', firstLetter);
-	secondLetter = $('input[name=sally]').val();
-	localStorage.setItem('two', secondLetter);
-	chosenMonth = $('option:selected').val();
-	localStorage.setItem('mos', chosenMonth);
-	if ((firstLetter === " ") || (firstLetter ==="") || (secondLetter === " ") || (secondLetter === "")) {
-		console.log("space or blank entered");
-	alert ("Please enter a letter.");
-	//set button to false
-	}
-	// else if (firstLetter == invalidChoices ) {
-	// alert ("Letters only, please.");
-	// }
-	else {
-		//alert (firstLetter + secondLetter + chosenMonth);
-		console.log(firstLetter + secondLetter + chosenMonth);
-		getAdjFirst();
+
+//This function checks for validity of entry two, and pushes it to local storage. 
+$ ('#letterTwo').keyup(function() {
+	var inputLetter = $('input[name=sally]').val();
+	var myRegex = /^[a-zA-Z]+$/;
+	if (myRegex.test(inputLetter)) {
+		console.log ("is running letter check two"+inputLetter);
+		secondLetter = inputLetter.toLowerCase();	
+		localStorage.setItem('two', secondLetter);
+		secondCondition = true;
 		getAdjSecond();
-		storeInsult();
+	//console.log(secondLetter);
 	}
+	else if ((inputLetter === " ") || (inputLetter ==="")) {
+		alert ("Don't skip this step!");
+	}	
+	else{
+		$('#field2').trigger('reset');
+		alert ("Letters only, please.");
+	}
+	enableButton();
 });
-	
+
+//this function checks for content of entry three and pushes it to local storage.
+
+$ ("#month").on('change',function() {
+   		var clickedMonth = $('option:selected').val();
+		localStorage.setItem('mos', clickedMonth);
+		console.log(clickedMonth);
+		thirdCondition = true;
+		getNoun();
+		enableButton();
+});
+
+//This function enables button two
+$ ("#myColor").on('change',function() {
+		$("#submitTwo").removeAttr('disabled');
+
+});
+
+//This function runs the insult generator when the first submit button is clicked.
+$ ('#submitOne').click(function() {
+    window.location.href = 'page1.html';
+		console.log(firstLetter + secondLetter + chosenMonth);
+		//getAdjFirst();
+		//getAdjSecond();
+		//getNoun();
+		storeInsult();
+		getInsult();
+	return false;	
+});
+
+//This function runs the random Act generator when the second submit button is clicked.
+
 $ ('#submitTwo').click(function() {
 	//chosenColor = $('input[name=colorChoice]').val();
 	chosenHue = $('option:selected').val();
 	localStorage.setItem('col', chosenHue);
 	console.log(chosenHue);
 	getAct();
+	window.location.href = 'page2.html';
+	return false;
 	});
 
 
-
+// var run = function() {
+// 	disableButton();
+// }();
 
 //end of the document ready, punctuation below is end of the section
 });

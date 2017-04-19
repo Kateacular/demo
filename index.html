@@ -5,6 +5,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="script.js"></script>
 
+
 	<title>Main Page</title>
 
 </head>
@@ -13,7 +14,7 @@
 	<div id='Intro'>
 		<h1>Choose Your Karma</h1>
 	</div>
-	<div id='form1'>
+	<div id =form1>
 		<fieldset>
 			<legend>
 			<h2>Please enter the following information:</h2>
@@ -21,15 +22,18 @@
 			</legend>
 			<label>
 				First Letter of Your First Name:
+				<form id='field1'>
 				<input id ='letterOne' type = 'text' name = 'francis' size = '1' maxlength = '1' required >
-				<!-- <script type="text/javascript" src="script.js"></script> -->
+				</form>
 			</label>
-				<br/>
+				<!-- <br/> -->
 			<label>
 				Last Letter of Your Last Name:
+				<form id='field2'>
 				<input id = 'letterTwo' type = 'text' name = 'sally' size = '1' maxlength = '1' required>
+				</form>
 			</label>
-				<br/>
+				<!-- <br/> -->
 			<label for = 'birthdate'>What is your birth month?
 			</label>
 			<select size = "1" name = 'birthmonth' id = 'month' required >
@@ -48,20 +52,16 @@
 				<option value = 'Dec'>December</option>
 			</select>
 			</div>
-			<div id = 'submitOne'>
+			<div id = 'submit'>
 				<nav>Submit and Generate:
-					<button id = 'submit'><a href=page1.html target='blank'>Submit</a></button>
-
+					<button id = 'submitOne'>Submit</button>
 				</nav>
 				<!-- reference button -->
-<!-- 				<nav>Concepts Page:
-				<button><a href= Gallery.html target=_"blank">Go to Page</a></button>
-		</nav> -->
+				<!-- <button id = tester></button> -->
 			</div>
 		</fieldset>
+		</div>
 	<!-- <div id = "tester">Test Button</div> -->
-	</div>
-
 	<footer id = "footerOne">
 	<p><h3>&#169 Kate Orr 2017</h3></p>	
 	</footer>
