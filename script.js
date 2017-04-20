@@ -17,13 +17,14 @@ var userMood;
 var wordOne;
 var wordTwo;
 
+var sickBurn;
+
 var randomAct;
 
 var firstCondition = false;
 var secondCondition = false;
 var thirdCondition = false;
 
-var moodCondition = false;
 
 //JSON Messages
 
@@ -149,7 +150,7 @@ function enableButton() {
 
 
 function getAdjFirst(){
-wordOne =localStorage.getItem('one');
+wordOne = localStorage.getItem('one');
 	for (var x in firstAdj) {
 		//console.log("Insult word, next line:");
 	userLetOne = (firstAdj[wordOne]);
@@ -159,7 +160,7 @@ wordOne =localStorage.getItem('one');
 }
 
 function getAdjSecond(){
-wordTwo =localStorage.getItem('two');
+wordTwo = localStorage.getItem('two');
 	for (var x in secondAdj) {
 	userLetTwo = (secondAdj[wordTwo]);
 //console.log("testing adjective 2 call");
@@ -175,7 +176,7 @@ wordTwo =localStorage.getItem('two');
 function getNoun(){
 chosenMonth = localStorage.getItem('mos');
 	if (chosenMonth == "Jan") {
-	userMonth = january[randomNoun(january)];
+	userMonth = january[Math.floor(Math.random() * february.length)];
 	}
 	else if (chosenMonth == "Feb"){
 	userMonth = february[Math.floor(Math.random() * february.length)];
@@ -219,24 +220,38 @@ chosenMonth = localStorage.getItem('mos');
 
 function storeInsult() {
 	console.log("storingInsult");
-var userInsult = userLetOne+" "+userLetTwo+" "+userMonth;
-alert (userInsult);
-localStorage.setItem('fullInsult',userInsult);
+	var userInsult = userLetOne+" "+userLetTwo+" "+userMonth;
+	alert (userInsult);
+	localStorage.setItem('fullInsult',userInsult);
 }
 
+//Robb hack version
+// var getInsult = function getInsult() {
+// 	console.log("calling insult function");
+// 	sickBurn = localStorage.getItem('fullInsult');
+// 	console.log(sickBurn);
+// 	$('#burn').append("Your insult is: " + sickBurn);
+// 	//alert(sickBurn);
+// }();
 
+//0riginal version
 function getInsult() {
-	console.log("calling insult function");
-var sickBurn = localStorage.getItem('fullInsult');
-$("#burn").html("Your insult is: " + sickBurn);
-console.log(sickBurn);
-//alert(sickBurn);
-}
+	console.log("Pulling the Insult");
+sickBurn = localStorage.getItem('fullInsult');
+$('#burn').html("Your custom insult is: " +sickBurn);
 
+}getInsult();
+
+
+
+
+
+
+//This function pulls the seleced color from local storage, then applies a random assignment to it based on the color value, then stores the assignment in local storage. 
 function getAct(){
-chosenColor =localStorage.getItem('col');
-console.log("pulled color from storage");
-console.log(chosenColor);
+	chosenColor =localStorage.getItem('col');
+	console.log("pulled color from storage");
+	console.log(chosenColor);
 	if (chosenColor == 'Red') {
 	userMood = red[Math.floor(Math.random() * red.length)];
 	}
@@ -265,10 +280,10 @@ console.log(chosenColor);
 	console.log("unselected mood color");	
 	}
 localStorage.setItem('mood', userMood);
-randomAct = localStorage.getItem('mood');
-console.log(randomAct);
-$("#kindness").html("Your random act of kindness is:\n" + randomAct);
-}
+// randomAct = localStorage.getItem('mood');
+// console.log(randomAct);
+// $("#kindness").html("Your random act of kindness is:\n" + randomAct);
+} 
 
 
 //Buttons and click events
@@ -278,11 +293,11 @@ $ ('#letterOne').keyup(function() {
 	var inputLetter = $('input[name=francis]').val();
 	var myRegex = /^[a-zA-Z]+$/;
 	if (myRegex.test(inputLetter)) {
-		console.log ("is running letter check one"+inputLetter);
+		//console.log ("is running letter check one"+inputLetter);
 		firstLetter = inputLetter.toLowerCase();	
 		localStorage.setItem('one', firstLetter);
 		firstCondition = true;
-		getAdjFirst();
+		//getAdjFirst();
 	}
 	else if ((inputLetter === " ") || (inputLetter ==="")) {
 		alert ("Don't skip this step!");
@@ -304,7 +319,7 @@ $ ('#letterTwo').keyup(function() {
 		secondLetter = inputLetter.toLowerCase();	
 		localStorage.setItem('two', secondLetter);
 		secondCondition = true;
-		getAdjSecond();
+		//getAdjSecond();
 	//console.log(secondLetter);
 	}
 	else if ((inputLetter === " ") || (inputLetter ==="")) {
@@ -324,23 +339,27 @@ $ ("#month").on('change',function() {
 		localStorage.setItem('mos', clickedMonth);
 		console.log(clickedMonth);
 		thirdCondition = true;
-		getNoun();
+		//getNoun();
 		enableButton();
 });
 
 //This function enables button two
 $ ("#myColor").on('change',function() {
-		$("#submitTwo").removeAttr('disabled');
+	$("#submitTwo").removeAttr('disabled');
+	var clickedColor = $('option:selected').val();
+	localStorage.setItem('col', clickedColor);
+		//getAct();
 
 });
 
 //This function runs the insult generator when the first submit button is clicked.
-$ ('#submitOne').click(function() {
+$('#submitOne').unbind("click").click(function() {
+	console.log("#submitOne is being called");
     window.location.href = 'page1.html';
 		console.log(firstLetter + secondLetter + chosenMonth);
-		//getAdjFirst();
-		//getAdjSecond();
-		//getNoun();
+		getAdjFirst();
+		getAdjSecond();
+		getNoun();
 		storeInsult();
 		getInsult();
 	return false;	
@@ -348,16 +367,32 @@ $ ('#submitOne').click(function() {
 
 //This function runs the random Act generator when the second submit button is clicked.
 
-$ ('#submitTwo').click(function() {
+$('#submitTwo').click(function() {
 	//chosenColor = $('input[name=colorChoice]').val();
-	chosenHue = $('option:selected').val();
-	localStorage.setItem('col', chosenHue);
-	console.log(chosenHue);
-	getAct();
-	window.location.href = 'page2.html';
-	return false;
+	// chosenHue = $('option:selected').val();
+	// localStorage.setItem('col', chosenHue);
+	//getAct();
+	//randomAct = localStorage.getItem('mood');
+	console.log("pulling act of kindness from storage");
+	console.log(randomAct);
+		window.location.href = 'page2.html';
+		display();
+	//return false;
 	});
 
+var display = function display() {
+	console.log("running display function");
+	getAct();
+	randomAct = localStorage.getItem('mood');
+	$("#kindness").append("Your random act of kindness is:\n" + randomAct);
+}; display();
+
+
+
+$('#submitThree').on("DOMNodeInserted", function() {
+	console.log("piiizaaaaaaaaa");
+	// getInsult();
+});
 
 // var run = function() {
 // 	disableButton();
